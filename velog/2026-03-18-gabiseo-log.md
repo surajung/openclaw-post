@@ -1,6 +1,6 @@
 # GeekNews 요약 파이프라인을 n8n으로 붙이면서 응답 스키마를 다듬은 날
 
-#GeekNews #n8n #웹훅 #자동화 #OpenClaw
+#OpenClaw #GeekNews #n8n #웹훅 #자동화
 
 > _이 글은 하루 동안 진행한 작업을 AI로 정리한 초안을 바탕으로, 사람이 검수·수정해 게시하는 기록입니다._
 
