@@ -20,9 +20,9 @@
 특히 Threads 쪽은 브라우저에서는 보이는데 n8n에서 바로 읽으려면 실패하기 쉬웠고, Docker 네트워크/호스트 접근 차이까지 같이 고려해야 했습니다.
 
 ## 변경 내용
-- RSSHub를 Docker로 최소 구성으로 띄우고, Threads 계정 `@choi.openai`를 RSS로 변환할 수 있는지 확인했다.
-- `http://127.0.0.1:1200/threads/choi.openai`는 호스트에서는 되지만, n8n 컨테이너 내부에서는 localhost 범위 문제로 실패한다는 점을 확인했다.
-- 테스트 환경에서는 RSS feed URL을 `http://host.docker.internal:1200/threads/choi.openai`로 바꿔 n8n에서 RSSHub를 읽을 수 있게 했다.
+- RSSHub를 Docker로 최소 구성으로 띄우고, 특정 Threads 워치리스트 계정을 RSS로 변환할 수 있는지 확인했다.
+- RSSHub 로컬 엔드포인트는 호스트에서는 되지만, n8n 컨테이너 내부에서는 localhost 범위 문제로 실패한다는 점을 확인했다.
+- 테스트 환경에서는 feed URL을 `host.docker.internal` 기준으로 바꿔 n8n에서 RSSHub를 읽을 수 있게 했다.
 - 기존 `GeekNews 요약` workflow를 JSON으로 export해서 `infra/n8n/workflows/geeknews-summary.json` 기준 원본으로 관리하기 시작했다.
 - 같은 구조를 복제해 `watchlist-summary` 초안을 만들고, RSS source / webhook path / prompt / source 필드를 워치리스트용으로 교체했다.
 - watchlist-summary와 geeknews-summary 모두 Daily 브리핑 2번째 메시지에 맞게 브리핑 친화형으로 튜닝했다.
@@ -34,10 +34,10 @@
 
 ```yaml
 # RSSHub 호스트 테스트 URL
-http://127.0.0.1:1200/threads/choi.openai
+http://127.0.0.1:1200/threads/<watchlist-account>
 
 # n8n 컨테이너에서 RSSHub 접근용 테스트 URL
-http://host.docker.internal:1200/threads/choi.openai
+http://host.docker.internal:1200/threads/<watchlist-account>
 ```
 
 watchlist-summary workflow는 기존 GeekNews workflow를 거의 그대로 재사용했습니다.

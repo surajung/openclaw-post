@@ -20,6 +20,8 @@
 {{code_or_config}}
 ```
 
+> 외부 계정명, 내부 식별자, 민감한 URL은 공개용 초안에서 `<watchlist-account>` 같은 일반화 표현으로 바꾼다.
+
 ## 결과
 {{result}}
 
