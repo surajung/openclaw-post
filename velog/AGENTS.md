@@ -78,7 +78,9 @@ validator 실패 시:
 
 ## Git 규칙
 - validator 통과 후에만 git add/commit/push 수행
-- commit 메시지 기본값: `docs(velog): add YYYY-MM-DD draft`
+- 커밋 메시지는 한글로 작성한다.
+- 기본 커밋 메시지: `docs(velog): YYYY-MM-DD 초안 추가`
+- 규칙/문서/템플릿 수정도 가능하면 한글 메시지를 사용한다.
 - push 실패 시 파일은 유지하고 실패 사실만 보고
 
 ## 운영 원칙
