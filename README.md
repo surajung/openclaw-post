@@ -8,7 +8,7 @@
 - Git 기반 형상관리 및 백업
 
 ## 현재 구성
-- `velog/` : Velog 게시용 초안 (사람용 README / AI용 AGENTS / 템플릿 포함)
+- `velog/` : Velog 게시용 초안, 템플릿, 운영 규칙
 - `scripts/` : 초안 검증용 로컬 도구
 
 ## 운영 원칙
