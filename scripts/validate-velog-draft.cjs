@@ -19,8 +19,9 @@ const text = fs.readFileSync(absPath, 'utf8');
 const errors = [];
 const disclaimer = '> _이 글은 하루 동안 진행한 작업을 AI로 정리한 초안을 바탕으로, 사람이 검수·수정해 게시하는 기록입니다._';
 const strippedText = text.replace(/(^|\n)(`{3,})[\s\S]*?\n\2/g, '\n[CODE_BLOCK]\n');
+const textForPlaceholderCheck = strippedText.replace(/`\{\{[^}]+\}\}`/g, '`[PLACEHOLDER_EXAMPLE]`');
 
-const placeholderMatches = strippedText.match(/\{\{[^}]+\}\}/g) || [];
+const placeholderMatches = textForPlaceholderCheck.match(/\{\{[^}]+\}\}/g) || [];
 if (placeholderMatches.length > 0) {
   errors.push(`Unresolved placeholders found: ${placeholderMatches.join(', ')}`);
 }
